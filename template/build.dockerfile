@@ -13,5 +13,7 @@ FROM prep as build
 # Build packages
 RUN yarn build:ui
 
+RUN mkdir -p /ui/test-results
+
 FROM base as artifact
 COPY --from=build /prepping-ui/build /ui/arcusOutput
